@@ -1,0 +1,44 @@
+---
+title: Planning Game XP
+description: Gestión ágil de proyectos siguiendo prácticas de eXtreme Programming, con integración MCP para flujos de trabajo con IA.
+template: splash
+hero:
+  tagline: Gestiona sprints, tareas, bugs y épicas al estilo XP. Con servidor MCP integrado para agentes de IA.
+  image:
+    file: ../../../assets/logo.svg
+  actions:
+    - text: Empezar
+      link: /docs/es/getting-started/introduction/
+      icon: right-arrow
+    - text: Ver en GitHub
+      link: https://github.com/manufosela/planning-game-xp
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Por qué Planning Game XP?
+
+Diseñado para equipos que se toman en serio el desarrollo ágil. Planning Game XP sigue las prácticas de eXtreme Programming con enforcement real, no solo sugerencias.
+
+<CardGrid stagger>
+  <Card title="Flujo XP-First" icon="rocket">
+    Sprints, épicas, tareas, bugs, proposals y QA — todo con transiciones de estado estrictas, límites WIP y gates de validación.
+  </Card>
+  <Card title="Integración MCP" icon="puzzle">
+    Servidor MCP integrado con más de 25 herramientas. Los agentes de IA pueden crear tareas, actualizar estados, gestionar sprints y rastrear el pipeline.
+  </Card>
+  <Card title="Colaboración en Tiempo Real" icon="laptop">
+    Firebase Realtime Database potencia actualizaciones instantáneas. Múltiples miembros del equipo ven los cambios al instante.
+  </Card>
+  <Card title="Seguimiento de Pipeline" icon="approve-check">
+    Rastrea cada card desde el commit hasta el despliegue. Badges automáticos para Committed, PR Created, Merged y Deployed.
+  </Card>
+  <Card title="Múltiples Vistas" icon="list-format">
+    Vistas Lista, Kanban, Sprint y Gantt. Filtra por desarrollador, estado, sprint, épica o año.
+  </Card>
+  <Card title="Desarrollo Asistido por IA" icon="star">
+    BecarIA (dev_016) gestiona tareas de forma autónoma. Planes de implementación, generación de criterios de aceptación y revisión de código automatizada.
+  </Card>
+</CardGrid>
