@@ -12,13 +12,6 @@
         "headers": [{ "key": "Cache-Control", "value": "max-age=31536000, immutable" }]
       }
     ],
-    "cleanUrls": true,
-    "redirects": [
-      {
-        "source": "/",
-        "destination": "/docs/",
-        "type": 301
-      }
-    ]
+    "cleanUrls": true
   }
 }
