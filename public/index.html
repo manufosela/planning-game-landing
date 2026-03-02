@@ -10,7 +10,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Planning Game XP — Agile Project Management for AI-Powered Teams">
-  <meta property="og:description" content="XP-based project management with 25+ MCP tools for AI agents. Sprints, Kanban, Gantt, ADRs, real-time collaboration.">
+  <meta property="og:description" content="XP-based project management with 40+ MCP tools for AI agents. Sprints, Kanban, Gantt, ADRs, real-time collaboration.">
   <meta property="og:image" content="https://pgamexp.com/logo.png">
   <meta property="og:url" content="https://pgamexp.com">
   <meta property="og:type" content="website">
@@ -245,6 +245,106 @@
     .fi-amber { background: rgba(251,191,36,0.15); color: var(--accent-amber); }
     .fi-rose { background: rgba(244,63,94,0.15); color: var(--accent-rose); }
 
+    /* --- SCREENSHOTS --- */
+    .screenshots-section {
+      padding: 2rem 2rem 6rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .screenshot-tabs {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .screenshot-tab {
+      padding: 0.55rem 1.2rem;
+      border-radius: 8px;
+      font-family: var(--font);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+    .screenshot-tab:hover {
+      border-color: var(--accent-indigo);
+      color: var(--text);
+    }
+    .screenshot-tab.active {
+      background: rgba(99,102,241,0.15);
+      border-color: var(--accent-indigo);
+      color: var(--accent-indigo);
+    }
+
+    .screenshot-viewer {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .screenshot-titlebar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      background: rgba(30,39,64,0.5);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .screenshot-titlebar .terminal-dot { width: 8px; height: 8px; }
+
+    .screenshot-titlebar span.title-text {
+      margin-left: 8px;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      font-family: var(--mono);
+    }
+
+    .screenshot-content {
+      position: relative;
+      min-height: 300px;
+    }
+
+    .screenshot-content img {
+      width: 100%;
+      display: block;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 0.35s ease;
+    }
+    .screenshot-content img.active {
+      opacity: 1;
+      position: relative;
+    }
+
+    .screenshot-caption {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .screenshot-caption h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .screenshot-caption p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
     /* --- MCP --- */
     .mcp-section {
       padding: 2rem 2rem 6rem;
@@ -401,7 +501,7 @@
     <div class="hero-actions">
       <a href="https://github.com/manufosela/planning-game-xp" class="btn btn-primary">GitHub</a>
       <a href="/docs/" class="btn btn-secondary">Docs</a>
-      <a href="https://planning-gamexp.web.app" class="btn btn-secondary">Live App</a>
+      <a href="https://pgamexp-demo.web.app" class="btn btn-secondary">Try Demo</a>
     </div>
   </section>
 
@@ -442,7 +542,7 @@
       <div class="feature-card">
         <div class="feature-icon fi-blue">&#11208;</div>
         <h3>MCP Server</h3>
-        <p>25+ tools for AI agents. Claude, Codex, and any MCP-compatible host can manage your project programmatically.</p>
+        <p>40+ tools for AI agents. Claude, Codex, and any MCP-compatible host can manage your project programmatically.</p>
       </div>
 
       <div class="feature-card">
@@ -454,7 +554,7 @@
       <div class="feature-card">
         <div class="feature-icon fi-rose">&#9881;</div>
         <h3>Role-Based Permissions</h3>
-        <p>SuperAdmin, Admin, User, Consultant roles. Fine-grained access control. Validators approve tasks, developers self-assign.</p>
+        <p>Developers, Admins, and SuperAdmins with fine-grained access control per project. Validators approve tasks, developers self-assign work.</p>
       </div>
 
       <div class="feature-card">
@@ -484,6 +584,40 @@
     </div>
   </section>
 
+  <!-- SCREENSHOTS -->
+  <section class="screenshots-section fade-in">
+    <h2 class="section-title">See it in Action</h2>
+    <p class="section-sub">Multiple views to manage your project the way you need it.</p>
+
+    <div class="screenshot-tabs">
+      <button class="screenshot-tab active" data-target="kanban">Kanban</button>
+      <button class="screenshot-tab" data-target="table">Table</button>
+      <button class="screenshot-tab" data-target="card">Card Detail</button>
+      <button class="screenshot-tab" data-target="sprint">Sprint</button>
+      <button class="screenshot-tab" data-target="gantt">Gantt</button>
+    </div>
+
+    <div class="screenshot-viewer">
+      <div class="screenshot-titlebar">
+        <div class="terminal-dot r"></div>
+        <div class="terminal-dot y"></div>
+        <div class="terminal-dot g"></div>
+        <span class="title-text">planning-game-xp</span>
+      </div>
+      <div class="screenshot-content">
+        <img src="/screenshots/kanban-view.png" alt="Kanban view with task columns" class="active" data-id="kanban">
+        <img src="/screenshots/table-view.png" alt="Table view with filters and sorting" data-id="table">
+        <img src="/screenshots/card-detail.png" alt="Task card detail with user stories" data-id="card">
+        <img src="/screenshots/sprint-view.png" alt="Sprint management with retrospective" data-id="sprint">
+        <img src="/screenshots/gantt-chart.png" alt="Gantt chart with collapsible epics" data-id="gantt">
+      </div>
+      <div class="screenshot-caption">
+        <h4 id="caption-title">Kanban Board</h4>
+        <p id="caption-desc">Drag-and-drop task management with status columns. See your workflow at a glance.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- TERMINAL DEMO -->
   <section class="demo-section fade-in">
     <h2 class="section-title">AI Agents in Action</h2>
@@ -510,7 +644,7 @@
   <!-- MCP -->
   <section class="mcp-section fade-in">
     <h2 class="section-title">MCP Server Included</h2>
-    <p class="section-sub">25+ tools for managing projects, cards, sprints, ADRs, and plans. Any MCP-compatible AI agent can interact with your planning board.</p>
+    <p class="section-sub">40+ tools for managing projects, cards, sprints, ADRs, plans, and users. Any MCP-compatible AI agent can interact with your planning board.</p>
     <div class="mcp-box">
       <p class="mcp-desc">Add the Planning Game MCP server to your AI agent configuration:</p>
       <pre><code>{
@@ -526,6 +660,7 @@
 }</code></pre>
       <div class="mcp-tools">
         <span class="mcp-tool">list_projects</span>
+        <span class="mcp-tool">get_project</span>
         <span class="mcp-tool">list_cards</span>
         <span class="mcp-tool">create_card</span>
         <span class="mcp-tool">update_card</span>
@@ -535,8 +670,13 @@
         <span class="mcp-tool">create_sprint</span>
         <span class="mcp-tool">list_adrs</span>
         <span class="mcp-tool">create_adr</span>
-        <span class="mcp-tool">discover_project</span>
         <span class="mcp-tool">list_plans</span>
+        <span class="mcp-tool">create_plan</span>
+        <span class="mcp-tool">list_global_config</span>
+        <span class="mcp-tool">discover_project</span>
+        <span class="mcp-tool">provision_user</span>
+        <span class="mcp-tool">setup_mcp_user</span>
+        <span class="mcp-tool">get_mcp_status</span>
       </div>
     </div>
   </section>
@@ -563,6 +703,31 @@
 
     document.querySelectorAll('.fade-in').forEach(function(el) {
       observer.observe(el);
+    });
+
+    // Screenshot tabs
+    var captions = {
+      kanban: { title: 'Kanban Board', desc: 'Drag-and-drop task management with status columns. See your workflow at a glance.' },
+      table: { title: 'Table View', desc: 'Filterable, sortable table with all task fields. Ideal for bulk review and sprint planning.' },
+      card: { title: 'Card Detail', desc: 'Full task detail with user stories (As a / I want / So that), acceptance criteria, notes, and history.' },
+      sprint: { title: 'Sprint Management', desc: 'Plan sprints with start/end dates, retrospectives, demo notes, and real points tracking.' },
+      gantt: { title: 'Gantt Chart', desc: 'Timeline view with collapsible epics, adaptive date range, and real-time progress tracking.' }
+    };
+
+    document.querySelectorAll('.screenshot-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var target = this.getAttribute('data-target');
+        document.querySelectorAll('.screenshot-tab').forEach(function(t) { t.classList.remove('active'); });
+        this.classList.add('active');
+        document.querySelectorAll('.screenshot-content img').forEach(function(img) { img.classList.remove('active'); });
+        var targetImg = document.querySelector('.screenshot-content img[data-id="' + target + '"]');
+        if (targetImg) targetImg.classList.add('active');
+        var cap = captions[target];
+        if (cap) {
+          document.getElementById('caption-title').textContent = cap.title;
+          document.getElementById('caption-desc').textContent = cap.desc;
+        }
+      });
     });
   </script>
 

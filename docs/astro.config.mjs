@@ -9,7 +9,7 @@ export default defineConfig({
 		starlight({
 			title: 'Planning Game XP',
 			logo: {
-				src: './src/assets/logo.svg',
+				src: './src/assets/logo.png',
 			},
 			defaultLocale: 'root',
 			locales: {
