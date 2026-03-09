@@ -155,6 +155,24 @@ Access shared configurations (agents, prompts, instructions).
 
 ---
 
+## Diagnostic Tools
+
+### `pg_doctor`
+Run comprehensive diagnostics on the MCP server. Checks Node.js version, Firebase credentials, database connectivity, dependencies, user configuration, MCP version, instance config, and git availability. Returns a structured report with PASS/WARN/FAIL status for each check.
+
+**Parameters:** None
+
+### `pg_config`
+View MCP server configuration including instance name, Firebase project, credentials path, user config, and environment variables.
+
+**Parameters:**
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `action` | enum | No | `"view"` (default) or `"get"` |
+| `key` | string | No | Config key to get (for action `"get"`). Keys: `version`, `instanceName`, `firebaseProjectId`, `credentialsPath`, `userConfigPath`, `user`, `env` |
+
+---
+
 ## Utility Tools
 
 ### `setup_mcp_user`

@@ -3,7 +3,7 @@ title: MCP Server
 description: How to use Planning Game's MCP server with AI agents.
 ---
 
-Planning Game includes an MCP (Model Context Protocol) server that exposes 25+ tools for AI agent integration.
+Planning Game includes an MCP (Model Context Protocol) server that exposes 36+ tools for AI agent integration.
 
 ## What is MCP?
 
@@ -56,6 +56,7 @@ This creates a `.mcp-user.json` file that links your identity to a developer ID.
 | **Plans** | `list_plans`, `get_plan`, `create_plan`, `update_plan`, `delete_plan` | Development plans |
 | **Config** | `list_global_config`, `get_global_config` | Shared guidelines |
 | **Team** | `list_developers`, `list_stakeholders` | Team members |
+| **Diagnostics** | `pg_doctor`, `pg_config` | Server health checks and configuration viewer |
 
 ## Project Resolution
 
