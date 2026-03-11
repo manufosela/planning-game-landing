@@ -3,7 +3,7 @@ title: Servidor MCP
 description: Cómo usar el servidor MCP de Planning Game con agentes IA.
 ---
 
-Planning Game incluye un servidor MCP (Model Context Protocol) que expone más de 25 herramientas para integración con agentes IA.
+Planning Game incluye un servidor MCP (Model Context Protocol) que expone más de 45 herramientas para integración con agentes IA.
 
 ## Qué es MCP?
 
@@ -65,3 +65,37 @@ El servidor MCP aplica las mismas reglas que la UI:
 - Límites WIP (una tarea "In Progress" por desarrollador)
 - Los validators no pueden ser saltados
 - Seguimiento de pipeline (commits, info de PR) requerido para "To Validate"
+- Inmutabilidad de fechas de sprint cuando hay tareas In Progress o To Validate
+- Tracking de ciclos de trabajo (tiempos de inicio/fin, duración acumulada)
+
+## Asistente de Configuración
+
+Ejecuta el asistente interactivo para configurar una nueva instancia MCP:
+
+```bash
+node mcp/cli.js init
+```
+
+El asistente te guía a través de:
+1. Verificación de prerequisitos (Node.js 18+, Git)
+2. Nombre y descripción de la instancia
+3. Credenciales Firebase (serviceAccountKey.json)
+4. URL de base de datos y test de conectividad
+5. Identidad del usuario (developer ID)
+6. Generación del archivo de configuración (pg.config.yml)
+7. Sincronización de guidelines desde Firebase
+
+## Gestión de Guidelines
+
+El servidor MCP soporta guidelines centralizados almacenados en Firebase:
+
+- **Auto-versionado**: Cada actualización de contenido incrementa la versión y guarda historial
+- **Sincronización local**: `sync_guidelines` descarga las guidelines como archivos locales
+- **Historial de versiones**: Visualiza y restaura versiones anteriores
+- **Auto-check al arrancar**: Avisa si las guidelines locales están desactualizadas
+- **UI de administración**: Gestiona guidelines desde la página de administración del proyecto
+- **Script de migración**: Importa archivos CLAUDE.md existentes a guidelines de Firebase
+
+## Metadatos de Instancia
+
+Cada respuesta MCP incluye metadatos `_instance` con el Firebase project ID y el nombre de la instancia. Esto ayuda a identificar qué instancia responde cuando hay múltiples instancias conectadas.

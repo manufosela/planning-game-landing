@@ -151,7 +151,40 @@ Manage development plans with phases and proposed tasks.
 ## Global Config Tools
 
 ### `list_global_config` / `get_global_config`
-Access shared configurations (agents, prompts, instructions).
+Access shared configurations (agents, prompts, instructions, guidelines).
+
+### `create_global_config` / `update_global_config` / `delete_global_config`
+Create, update, or delete global configurations. For guidelines, content is auto-versioned on each update.
+
+---
+
+## Guidelines Tools
+
+### `sync_guidelines`
+Download guidelines from Firebase and write them as local files. Compares versions to only update changed guidelines.
+
+**Parameters:**
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `dryRun` | boolean | No | Preview changes without writing files |
+| `force` | boolean | No | Force sync even if versions match |
+
+### `get_guideline_history`
+View version history for a specific guideline, including all previous versions with timestamps.
+
+**Parameters:**
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `configId` | string | Yes | Guideline config ID |
+
+### `restore_guideline_version`
+Restore a guideline to a previous version. The current version is saved to history before restoring.
+
+**Parameters:**
+| Name | Type | Required | Description |
+|------|------|----------|-------------|
+| `configId` | string | Yes | Guideline config ID |
+| `version` | number | Yes | Version number to restore |
 
 ---
 
@@ -183,3 +216,12 @@ Get server version and update availability.
 
 ### `update_mcp`
 Update MCP server to latest version (git pull).
+
+### `publish_mcp_version`
+Publish MCP version to Firebase so other users get update notifications.
+
+### `provision_user`
+Provision a new user or update an existing one. Creates user record, auto-generates developer/stakeholder IDs, and assigns projects. Idempotent.
+
+### `delete_user`
+Delete a user and clean up legacy permission paths.
