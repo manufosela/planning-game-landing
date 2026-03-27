@@ -41,6 +41,21 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'MCP Server',
+					translations: { es: 'Servidor MCP' },
+					items: [
+						{ label: 'Install', slug: 'mcp/install', translations: { es: 'Instalar' } },
+						{ label: 'Multi-Instance', slug: 'mcp/multi-instance', translations: { es: 'Multi-Instancia' } },
+					],
+				},
+				{
+					label: 'Self-Hosted',
+					translations: { es: 'Auto-Alojado' },
+					items: [
+						{ label: 'Deploy Your Own', slug: 'self-hosted/setup', translations: { es: 'Despliega el Tuyo' } },
+					],
+				},
+				{
 					label: 'Reference',
 					translations: { es: 'Referencia' },
 					items: [
