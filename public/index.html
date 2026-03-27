@@ -585,6 +585,14 @@
       </div>
 
       <div class="step">
+        <div class="step-num" style="border-color: var(--amber); color: var(--amber);">!</div>
+        <div class="step-content">
+          <h3 data-i18n="mcp_prereq_title">Have your serviceAccountKey.json ready</h3>
+          <p data-i18n="mcp_prereq_desc">The wizard needs it to connect to Firebase. Get it from <a href="https://console.firebase.google.com" style="color: var(--accent); text-decoration: none;">Firebase Console</a> &rarr; Project Settings &rarr; Service Accounts &rarr; Generate new private key.</p>
+        </div>
+      </div>
+
+      <div class="step">
         <div class="step-num">2</div>
         <div class="step-content">
           <h3 data-i18n="mcp_s2_title">Run the setup wizard</h3>
@@ -800,6 +808,8 @@
         mcp_label: 'Servidor MCP', mcp_title: 'Instala en 3 pasos',
         mcp_desc: 'No necesitas clonar ning\u00fan repo. Solo necesitas el serviceAccountKey.json del proyecto Firebase al que quieras conectarte.',
         mcp_s1_title: 'Instala el paquete',
+        mcp_prereq_title: 'Ten tu serviceAccountKey.json preparado',
+        mcp_prereq_desc: 'El asistente lo necesita para conectar con Firebase. Obt\u00e9nlo en <a href="https://console.firebase.google.com" style="color: var(--accent); text-decoration: none;">Firebase Console</a> \u2192 Project Settings \u2192 Service Accounts \u2192 Generate new private key.',
         mcp_s2_title: 'Ejecuta el asistente de configuraci\u00f3n',
         mcp_s2_desc: 'El asistente valida tus credenciales, prueba la conectividad, auto-detecta tu usuario y registra el MCP en Claude Code.',
         mcp_s3_title: 'Empieza a usarlo',
