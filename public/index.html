@@ -631,31 +631,38 @@
   <section class="section reveal" id="multi-instance">
     <div class="section-label" data-i18n="multi_label">Multi-instance</div>
     <h2 data-i18n="multi_title">Add a second instance</h2>
-    <p class="section-desc" data-i18n="multi_desc">Connect to multiple Firebase projects simultaneously. Each instance has its own credentials and config.</p>
+    <p class="section-desc" data-i18n="multi_desc">Already have one instance? Just run the wizard again with a different name. It detects your existing instances automatically.</p>
 
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-content">
-          <h3 data-i18n="multi_s1_title">Create a directory for the new instance</h3>
+          <h3 data-i18n="multi_s1_title">Run the wizard again</h3>
+          <p data-i18n="multi_s1_desc">Have your second serviceAccountKey.json ready. The wizard will show your existing instances and create a new one alongside them.</p>
           <div class="cmd-block" data-copy-label="copy" onclick="copyCmd(this)">
-            <span class="prompt">$</span> mkdir ~/pg-instances/my-team &amp;&amp; cp serviceAccountKey.json ~/pg-instances/my-team/
-          </div>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-content">
-          <h3 data-i18n="multi_s2_title">Register it in Claude Code</h3>
-          <div class="cmd-block" data-copy-label="copy" onclick="copyCmd(this)">
-            <span class="prompt">$</span> claude mcp add planning-game-team \<br>&nbsp;&nbsp;-e GOOGLE_APPLICATION_CREDENTIALS=~/pg-instances/my-team/serviceAccountKey.json \<br>&nbsp;&nbsp;-e MCP_INSTANCE_DIR=~/pg-instances/my-team \<br>&nbsp;&nbsp;-- planning-game-mcp
+            <span class="prompt">$</span> planning-game-mcp init
           </div>
         </div>
       </div>
     </div>
 
-    <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-secondary);" data-i18n="multi_note">Each instance appears as a separate MCP server. Use <code>get_mcp_status</code> to identify which Firebase project each one connects to.</p>
+    <div class="terminal" style="margin-top: 1.5rem;">
+      <div class="terminal-bar">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+      </div>
+      <div class="terminal-body">
+        <div><span class="o">Existing instances:</span></div>
+        <div><span class="o">&nbsp;&nbsp;geniova &rarr; planning-gamexp</span></div>
+        <div><span class="o">&nbsp;&nbsp;</span></div>
+        <div><span class="o">Adding another instance? Just pick a different name.</span></div>
+        <div><span class="o">&nbsp;&nbsp;</span></div>
+        <div><span class="p">?</span> <span class="c">Instance name:</span> <span class="s">personal</span></div>
+        <div><span class="p">?</span> <span class="c">Path to serviceAccountKey.json:</span> <span class="s">~/keys/personal.json</span></div>
+        <div><span class="s">&#10004; Registered "planning-game-personal" in ~/.claude.json</span></div>
+      </div>
+    </div>
+
+    <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-secondary);" data-i18n="multi_note">Each instance appears as a separate MCP server in Claude Code. Use <code>get_mcp_status</code> to see which Firebase project each one connects to.</p>
   </section>
 
   <hr class="divider">
@@ -815,10 +822,10 @@
         mcp_s3_title: 'Empieza a usarlo',
         mcp_s3_desc: 'Abre Claude Code. El MCP est\u00e1 listo. Pide a tu IA que liste proyectos, cree tareas o gestione sprints.',
         multi_label: 'Multi-instancia', multi_title: 'A\u00f1ade una segunda instancia',
-        multi_desc: 'Con\u00e9ctate a m\u00faltiples proyectos Firebase simult\u00e1neamente. Cada instancia tiene sus propias credenciales y configuraci\u00f3n.',
-        multi_s1_title: 'Crea un directorio para la nueva instancia',
-        multi_s2_title: 'Reg\u00edstrala en Claude Code',
-        multi_note: 'Cada instancia aparece como un servidor MCP separado. Usa <code>get_mcp_status</code> para identificar a qu\u00e9 proyecto Firebase se conecta cada una.',
+        multi_desc: '\u00bfYa tienes una instancia? Solo ejecuta el wizard de nuevo con otro nombre. Detecta tus instancias existentes autom\u00e1ticamente.',
+        multi_s1_title: 'Ejecuta el wizard otra vez',
+        multi_s1_desc: 'Ten tu segundo serviceAccountKey.json preparado. El wizard mostrar\u00e1 tus instancias existentes y crear\u00e1 una nueva junto a ellas.',
+        multi_note: 'Cada instancia aparece como un servidor MCP separado en Claude Code. Usa <code>get_mcp_status</code> para ver a qu\u00e9 proyecto Firebase se conecta cada una.',
         deploy_label: 'Self-hosted', deploy_title: 'Despliega tu propio Planning Game',
         deploy_desc: 'Control total. Tu proyecto Firebase, tus datos, tu equipo. Unos 15 minutos.',
         deploy_s1_title: 'Haz fork y clona',
